@@ -66,28 +66,6 @@
   border-radius: 6px;
 }
 
-.product-wish-btn {
-  position: absolute;
-  bottom: 8px;
-  right: 8px;
-  background: white;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.product-wish-btn:hover,
-.product-wish-btn.wished {
-  border-color: #e53935;
-  background: #fff5f5;
-}
-
 .product-body {
   padding: 10px 12px 12px;
   display: flex;
@@ -144,34 +122,37 @@
   font-weight: 600;
 }
 
-.product-cart-btn {
-  width: 100%;
-  background: #2d7a3a;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 7px 0;
-  font-family: "Nunito", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 800;
+.product-action-row {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 6px;
   margin-top: 4px;
+}
+
+.product-action-row .buy-now-btn {
+  flex: 1;
+}
+
+.product-favorite-trigger {
+  width: 31px;
+  height: 31px;
+  border: 1px solid #d7d7d7;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #36454f;
+  background: #ffffff;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: border-color 0.18s ease, color 0.18s ease, background-color 0.18s ease;
 }
 
-.product-cart-btn:hover {
-  background: #1a5c2a;
-}
-
-.product-cart-btn.added {
-  background: #43a047;
-}
-
-.product-cart-btn.out-of-stock {
-  background: #ccc;
-  cursor: not-allowed;
+.product-favorite-trigger:hover,
+.product-favorite-trigger:focus-visible,
+.product-favorite-trigger.active {
+  border-color: #ffb300;
+  color: #f6a400;
+  background: #fffaf0;
+  outline: none;
 }

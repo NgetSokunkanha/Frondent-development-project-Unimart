@@ -1,26 +1,10 @@
 import { useState } from "react";
-import { FiShoppingCart, FiHeart, FiCheck } from "react-icons/fi";
-import { FaHeart, FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
+import { FiStar } from "react-icons/fi";
+import { FaStar } from "react-icons/fa";
+import Badge from "./badge";
+import Button from "./button.jsx";
+import StarRating from "./starRating.jsx";
 import "../styles/ProductCard.css";
-
-function StarRating({ rating = 4 }) {
-  return (
-    <div className="star-rating">
-      {[1, 2, 3, 4, 5].map((i) => {
-        if (i <= Math.floor(rating)) return <FaStar key={i} size={11} color="#f47c20" />;
-        if (i - rating < 1 && rating % 1 >= 0.5) return <FaStarHalfAlt key={i} size={11} color="#f47c20" />;
-        return <FaRegStar key={i} size={11} color="#ddd" />;
-      })}
-      <span className="star-rating-count">({rating.toFixed(1)})</span>
-    </div>
-  );
-}
-
-const badgeClass = {
-  New:  "badge-new",
-  Best: "badge-best",
-  Sale: "badge-sale",
-};
 
 export default function ProductCard({
   image = " ",
@@ -34,14 +18,11 @@ export default function ProductCard({
   onAddToCart,
 }) {
   const [wished, setWished] = useState(false);
-  const [added, setAdded] = useState(false);
 
   const discount = oldPrice ? Math.round(((oldPrice - price) / oldPrice) * 100) : null;
 
   const handleAdd = () => {
-    setAdded(true);
     onAddToCart?.({ name, price });
-    setTimeout(() => setAdded(false), 1800);
   };
 
   return (
@@ -50,21 +31,12 @@ export default function ProductCard({
       <div className="product-img-wrap">
         <img src={image} alt={name} className="product-img" />
 
-        {badge && badgeClass[badge] && (
-          <span className={`product-badge ${badgeClass[badge]}`}>{badge}</span>
-        )}
+        <Badge label={badge} />
 
         {discount && (
           <span className="product-discount">-{discount}%</span>
         )}
 
-        <button
-          className={`product-wish-btn ${wished ? "wished" : ""}`}
-          onClick={() => setWished(!wished)}
-          title="Wishlist"
-        >
-          {wished ? <FaHeart size={14} color="#e53935" /> : <FiHeart size={14} color="#aaa" />}
-        </button>
       </div>
 
       <div className="product-body">
@@ -78,14 +50,30 @@ export default function ProductCard({
           {oldPrice && <span className="product-old-price">${oldPrice.toFixed(2)}</span>}
         </div>
 
-        <button
-          className={`product-cart-btn ${!inStock ? "out-of-stock" : ""} ${added ? "added" : ""}`}
-          onClick={handleAdd}
-          disabled={!inStock}
-        >
-          {added ? <FiCheck size={14} /> : <FiShoppingCart size={14} />}
-          {!inStock ? "Out of Stock" : added ? "Product Added" : "Add to Cart"}
-        </button>
+        <div className="product-action-row">
+          <Button
+            label={inStock ? "Buy Now" : "Out of Stock"}
+            disabled={!inStock}
+            onClick={handleAdd}
+          />
+
+          <span
+            className={`product-favorite-trigger ${wished ? "active" : ""}`}
+            onClick={() => setWished(!wished)}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                setWished((current) => !current);
+              }
+            }}
+            role="button"
+            tabIndex={0}
+            aria-label={wished ? "Remove from favorites" : "Add to favorites"}
+            title="Favourite"
+          >
+            {wished ? <FaStar size={15} /> : <FiStar size={15} />}
+          </span>
+        </div>
       </div>
     </div>
   );
