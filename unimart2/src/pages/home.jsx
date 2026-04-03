@@ -1,11 +1,17 @@
 import React from 'react'
-import Header from '../components/header.jsx'
+import Header from "../components/Header.jsx";
+import Footer from "../components/Footer.jsx";
+import ProductCard from "../components/ProductCard.jsx";
 
 function Home() {
   return (
-    <div>
-      <h1> kuyhong </h1>
-    </div>
+    <>
+      <Header/>
+      <br></br>
+      <ProductCard/>
+      <Footer/>
+    </>
+
   )
 }
 

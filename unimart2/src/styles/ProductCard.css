@@ -1,0 +1,177 @@
+.product-card {
+  background: #fff;
+  border-radius: 14px;
+  border: 1.5px solid #e8f0e9;
+  width: 180px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  font-family: "Nunito", sans-serif;
+  transition: all 0.25s;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(45, 122, 58, 0.15);
+  border-color: #b8dfc0;
+}
+
+.product-img-wrap {
+  background: #f4fbf5;
+  height: 135px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 10px;
+  transition: transform 0.3s;
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.06);
+}
+
+.product-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 0.6rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #fff;
+}
+
+.badge-new  { background: #2d7a3a; }
+.badge-sale { background: #f47c20; }
+.badge-hot  { background: #e53935; }
+
+.product-discount {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #fff3e0;
+  color: #f47c20;
+  font-size: 0.6rem;
+  font-weight: 800;
+  padding: 3px 6px;
+  border-radius: 6px;
+}
+
+.product-wish-btn {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.product-wish-btn:hover,
+.product-wish-btn.wished {
+  border-color: #e53935;
+  background: #fff5f5;
+}
+
+.product-body {
+  padding: 10px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.product-brand {
+  font-size: 0.62rem;
+  color: #aaa;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.product-name {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #1e3a22;
+  line-height: 1.3;
+  overflow: hidden;
+}
+
+.star-rating {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+
+.star-rating-count {
+  font-size: 0.68rem;
+  color: #999;
+  font-weight: 700;
+  margin-left: 3px;
+}
+
+.product-price-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.product-price {
+  font-size: 1rem;
+  font-weight: 900;
+  color: #1a5c2a;
+}
+
+.product-old-price {
+  font-size: 0.72rem;
+  color: #bbb;
+  text-decoration: line-through;
+  font-weight: 600;
+}
+
+.product-cart-btn {
+  width: 100%;
+  background: #2d7a3a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 0;
+  font-family: "Nunito", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.product-cart-btn:hover {
+  background: #1a5c2a;
+}
+
+.product-cart-btn.added {
+  background: #43a047;
+}
+
+.product-cart-btn.out-of-stock {
+  background: #ccc;
+  cursor: not-allowed;
+}
