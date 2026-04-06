@@ -1,0 +1,214 @@
+.filter-modal-overlay {
+	position: fixed;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 32px;
+	background: rgba(26, 24, 22, 0.84);
+	z-index: 1000;
+}
+
+.filter-modal-card {
+	width: min(100%, 980px);
+	min-height: 420px;
+	padding: 22px 32px 28px;
+	border: 1.5px solid #75bf4f;
+	border-radius: 16px;
+	background: #f6f2e6;
+	box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+	font-family: "Nunito", sans-serif;
+}
+
+.filter-modal-title {
+	margin: 0 0 18px;
+	font-size: 1.75rem;
+	font-weight: 900;
+	color: #2f7d32;
+}
+
+.filter-modal-grid {
+	display: grid;
+	grid-template-columns: 1.2fr 1.35fr 1fr;
+	grid-template-areas:
+		"category reviews price"
+		". offers sales";
+	column-gap: 34px;
+	row-gap: 18px;
+}
+
+.filter-modal-section:nth-child(1) {
+	grid-area: category;
+}
+
+.filter-modal-section:nth-child(2) {
+	grid-area: reviews;
+}
+
+.filter-modal-section:nth-child(3) {
+	grid-area: price;
+}
+
+.filter-modal-section:nth-child(4) {
+	grid-area: offers;
+}
+
+.filter-modal-section:nth-child(5) {
+	grid-area: sales;
+}
+
+.filter-modal-heading {
+	margin: 0 0 10px;
+	font-size: 1.45rem;
+	font-weight: 900;
+	color: #2f7d32;
+}
+
+.filter-modal-check-row {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 10px;
+	font-size: 1.08rem;
+	font-weight: 600;
+	color: #2b2a26;
+	cursor: pointer;
+}
+
+.filter-modal-check-row input {
+	width: 14px;
+	height: 14px;
+	accent-color: #2f7d32;
+	cursor: pointer;
+}
+
+.filter-modal-review-list {
+	display: flex;
+	flex-direction: column;
+}
+
+.filter-modal-stars {
+	display: inline-flex;
+	gap: 6px;
+	align-items: center;
+}
+
+.filter-modal-star-active {
+	color: #f3b225;
+}
+
+.filter-modal-star-muted {
+	color: #8a909b;
+}
+
+.filter-modal-price-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	align-content: flex-start;
+}
+
+.filter-modal-price-pill {
+	border: none;
+	border-radius: 14px;
+	padding: 7px 16px;
+	background: #d8e36b;
+	color: #54561e;
+	font-family: "Nunito", sans-serif;
+	font-size: 0.92rem;
+	font-weight: 900;
+	cursor: pointer;
+	transition: transform 0.16s ease, filter 0.16s ease, box-shadow 0.16s ease;
+}
+
+.filter-modal-price-pill:hover,
+.filter-modal-price-pill.active {
+	filter: brightness(0.98);
+	transform: translateY(-1px);
+	box-shadow: 0 8px 16px rgba(144, 154, 39, 0.18);
+}
+
+.filter-modal-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 10px;
+	margin-top: 34px;
+}
+
+.filter-modal-actions button {
+	min-width: 112px;
+	height: 40px;
+	border: none;
+	border-radius: 18px;
+	font-family: "Nunito", sans-serif;
+	font-size: 0.98rem;
+	font-weight: 900;
+	cursor: pointer;
+}
+
+.filter-modal-cancel {
+	background: #d3d3d3;
+	color: #383838;
+}
+
+.filter-modal-confirm {
+	background: #1f7c22;
+	color: #ffffff;
+}
+
+@media (max-width: 920px) {
+	.filter-modal-card {
+		padding: 22px 22px 24px;
+	}
+
+	.filter-modal-grid {
+		grid-template-columns: 1fr 1fr;
+		grid-template-areas:
+			"category reviews"
+			"price offers"
+			"sales sales";
+	}
+}
+
+@media (max-width: 640px) {
+	.filter-modal-overlay {
+		padding: 16px;
+	}
+
+	.filter-modal-card {
+		max-height: 92vh;
+		overflow-y: auto;
+	}
+
+	.filter-modal-title {
+		font-size: 1.45rem;
+	}
+
+	.filter-modal-heading {
+		font-size: 1.2rem;
+	}
+
+	.filter-modal-check-row {
+		font-size: 0.97rem;
+	}
+
+	.filter-modal-grid {
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			"category"
+			"reviews"
+			"price"
+			"offers"
+			"sales";
+		gap: 14px;
+	}
+
+	.filter-modal-actions {
+		justify-content: stretch;
+	}
+
+	.filter-modal-actions button {
+		flex: 1;
+		min-width: 0;
+	}
+}
