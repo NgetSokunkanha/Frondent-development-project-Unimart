@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { FiStar } from "react-icons/fi";
 import { FaStar } from "react-icons/fa";
 import Badge from "./badge.jsx";
@@ -16,13 +15,17 @@ export default function ProductCard({
   badge = null,
   inStock = true,
   onAddToCart,
+  isFavorite = false,
+  onToggleFavorite,
 }) {
-  const [wished, setWished] = useState(false);
-
   const discount = oldPrice ? Math.round(((oldPrice - price) / oldPrice) * 100) : null;
 
   const handleAdd = () => {
-    onAddToCart?.({ name, price });
+    onAddToCart?.({ image, name, brand, price, oldPrice });
+  };
+
+  const handleFavoriteToggle = () => {
+    onToggleFavorite?.({ image, name, brand, price, oldPrice });
   };
 
   return (
@@ -48,20 +51,20 @@ export default function ProductCard({
           />
 
           <span
-            className={`product-favorite-trigger ${wished ? "active" : ""}`}
-            onClick={() => setWished(!wished)}
+            className={`product-favorite-trigger ${isFavorite ? "active" : ""}`}
+            onClick={handleFavoriteToggle}
             onKeyDown={(event) => {
               if (event.key === "Enter" || event.key === " ") {
                 event.preventDefault();
-                setWished((current) => !current);
+                handleFavoriteToggle();
               }
             }}
             role="button"
             tabIndex={0}
-            aria-label={wished ? "Remove from favorites" : "Add to favorites"}
+            aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
             title="Favourite"
           >
-            {wished ? <FaStar size={17} /> : <FiStar size={17} />}
+            {isFavorite ? <FaStar size={17} /> : <FiStar size={17} />}
           </span>
         </div>
       </div>

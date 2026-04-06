@@ -11,20 +11,61 @@ const promoItems = [
   ...featuredOffers.slice(0, 2),
 ];
 
-function Offers({ activeLink = "OFFERS & UPDATES", onNavigate }) {
+function Offers({
+  activeLink = "OFFERS & UPDATES",
+  onNavigate,
+  cartItems,
+  onAddToCart,
+  onUpdateCartQuantity,
+  onRemoveFromCart,
+  onClearCart,
+  currentUser,
+  onLogin,
+  onSignUp,
+  onLogout,
+  favoriteItems,
+  favoriteItemKeys,
+  onToggleFavorite,
+  onRemoveFavorite,
+  onClearFavorites,
+}) {
   return (
     <div className="offers-page">
       <div className="offers-shell">
-        <Header initialActive="OFFERS & UPDATES" activeLink={activeLink} onNavigate={onNavigate} />
+        <Header
+          initialActive="OFFERS & UPDATES"
+          activeLink={activeLink}
+          onNavigate={onNavigate}
+          cartItems={cartItems}
+          onUpdateCartQuantity={onUpdateCartQuantity}
+          onRemoveFromCart={onRemoveFromCart}
+          onClearCart={onClearCart}
+          currentUser={currentUser}
+          onLogin={onLogin}
+          onSignUp={onSignUp}
+          onLogout={onLogout}
+          favoriteItems={favoriteItems}
+          onRemoveFavorite={onRemoveFavorite}
+          onClearFavorites={onClearFavorites}
+        />
 
         <main className="offers-content">
           <section className="offers-section">
-            <h3 className="offers-title">NEW ARRIVALS</h3>
+            <div className="offers-section-header">
+              <h3 className="offers-title">NEW ARRIVALS</h3>
+              <button
+                className="offers-view-more"
+                type="button"
+                onClick={() => onNavigate?.("CATEGORY")}
+              >
+                VIEW ALL
+              </button>
+            </div>
 
             <div className="offers-arrival-grid">
               <div className="offers-highlight-block" />
 
-              <div>
+              <div className="offers-arrival-right">
                 <div className="offers-cards-grid offers-cards-grid-sm">
                   {featuredOffers.map((item, index) => (
                     <ProductCard
@@ -37,16 +78,20 @@ function Offers({ activeLink = "OFFERS & UPDATES", onNavigate }) {
                       rating={item.rating}
                       badge={item.badge}
                       inStock={true}
+                      onAddToCart={onAddToCart}
+                      isFavorite={favoriteItemKeys.includes(item.name)}
+                      onToggleFavorite={onToggleFavorite}
                     />
                   ))}
                 </div>
-                <button className="offers-view-more" type="button">VIEW MORE</button>
               </div>
             </div>
           </section>
 
           <section className="offers-section">
-            <h3 className="offers-title">DEALS OF THE DAY</h3>
+            <div className="offers-section-header">
+              <h3 className="offers-title">DEALS OF THE DAY</h3>
+            </div>
             <div className="offers-deals-row">
               <div className="offers-deal-box" />
               <div className="offers-deal-box" />
@@ -56,7 +101,9 @@ function Offers({ activeLink = "OFFERS & UPDATES", onNavigate }) {
           </section>
 
           <section className="offers-section offers-promo-section">
-            <h3 className="offers-title">PROMOTIONS</h3>
+            <div className="offers-section-header">
+              <h3 className="offers-title">PROMOTIONS</h3>
+            </div>
             <div className="offers-banner-strip" />
 
             <div className="offers-cards-grid offers-cards-grid-lg">
@@ -71,6 +118,9 @@ function Offers({ activeLink = "OFFERS & UPDATES", onNavigate }) {
                   rating={item.rating}
                   badge={item.badge}
                   inStock={true}
+                  onAddToCart={onAddToCart}
+                  isFavorite={favoriteItemKeys.includes(item.name)}
+                  onToggleFavorite={onToggleFavorite}
                 />
               ))}
             </div>

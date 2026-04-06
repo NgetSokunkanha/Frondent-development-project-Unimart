@@ -76,7 +76,24 @@ const isSalesMatch = (item, selectedSales = []) => {
   return selectedSales.some((sale) => checks[sale]);
 };
 
-function Category({ activeLink = "CATEGORY", onNavigate }) {
+function Category({
+  activeLink = "CATEGORY",
+  onNavigate,
+  cartItems,
+  onAddToCart,
+  onUpdateCartQuantity,
+  onRemoveFromCart,
+  onClearCart,
+  currentUser,
+  onLogin,
+  onSignUp,
+  onLogout,
+  favoriteItems,
+  favoriteItemKeys,
+  onToggleFavorite,
+  onRemoveFavorite,
+  onClearFavorites,
+}) {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [appliedFilters, setAppliedFilters] = useState({});
   const [searchQuery, setSearchQuery] = useState("");
@@ -131,7 +148,22 @@ function Category({ activeLink = "CATEGORY", onNavigate }) {
 
   return (
     <div className="category-page">
-      <Header initialActive="CATEGORY" activeLink={activeLink} onNavigate={onNavigate} />
+      <Header
+        initialActive="CATEGORY"
+        activeLink={activeLink}
+        onNavigate={onNavigate}
+        cartItems={cartItems}
+        onUpdateCartQuantity={onUpdateCartQuantity}
+        onRemoveFromCart={onRemoveFromCart}
+        onClearCart={onClearCart}
+        currentUser={currentUser}
+        onLogin={onLogin}
+        onSignUp={onSignUp}
+        onLogout={onLogout}
+        favoriteItems={favoriteItems}
+        onRemoveFavorite={onRemoveFavorite}
+        onClearFavorites={onClearFavorites}
+      />
 
       <main className="category-main">
         <section className="category-hero" aria-label="Category banner">
@@ -188,6 +220,9 @@ function Category({ activeLink = "CATEGORY", onNavigate }) {
               rating={item.rating}
               badge={item.badge}
               inStock={true}
+              onAddToCart={onAddToCart}
+              isFavorite={favoriteItemKeys.includes(item.name)}
+              onToggleFavorite={onToggleFavorite}
             />
           ))}
         </section>

@@ -18,31 +18,31 @@
 .offers-shell .nav {
   position: static;
   box-shadow: none;
-  height: 56px;
-  padding: 0 14px;
+  height: 64px;
+  padding: 0 2rem;
   background: #0f6a0e;
 }
 
 .offers-shell .logoImg {
-  height: 68px;
+  height: 85px;
 }
 
 .offers-shell .links {
-  gap: 3px;
+  gap: 4px;
 }
 
 .offers-shell .link {
-  font-size: 0.52rem;
-  padding: 5px 8px;
+  font-size: 0.75rem;
+  padding: 6px 12px;
 }
 
 .offers-shell .actions {
-  gap: 2px;
+  gap: 6px;
 }
 
 .offers-shell .iconBtn {
-  width: 32px;
-  height: 32px;
+  width: 38px;
+  height: 38px;
 }
 
 .offers-content {
@@ -50,40 +50,67 @@
 }
 
 .offers-section {
-  margin-bottom: 16px;
+  margin-bottom: 0;
+}
+
+.offers-section + .offers-section {
+  margin-top: 34px;
+}
+
+.offers-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  max-width: calc((4 * 340px) + (3 * 24px));
+  margin-inline: auto;
+  margin-bottom: 8px;
 }
 
 .offers-title {
   font-size: 0.95rem;
   color: #3f8f38;
   font-weight: 900;
-  margin-bottom: 8px;
+  margin-bottom: 0;
 }
 
 .offers-arrival-grid {
   display: grid;
   grid-template-columns: 1fr 1.85fr;
-  gap: 10px;
-  align-items: start;
+  gap: 24px;
+  align-items: stretch;
+  width: 100%;
+  max-width: calc((4 * 340px) + (3 * 24px));
+  margin-inline: auto;
 }
 
 .offers-highlight-block {
+  height: 100%;
   min-height: 236px;
   border-radius: 10px;
   background: #d4e576;
 }
 
+.offers-arrival-right {
+  display: flex;
+  flex-direction: column;
+}
+
 .offers-cards-grid {
   display: grid;
-  gap: 8px;
+  column-gap: 24px;
+  row-gap: 20px;
 }
 
 .offers-cards-grid-sm {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 340px));
+  justify-content: center;
 }
 
 .offers-cards-grid-lg {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 340px));
+  justify-content: center;
 }
 
 .offers-cards-grid .product-card {
@@ -94,79 +121,57 @@
 }
 
 .offers-view-more {
-  margin-top: 6px;
   border: none;
   background: transparent;
-  color: #5e9f3e;
+  color: #2c8534;
+  font-family: "Nunito", sans-serif;
   font-weight: 800;
-  font-size: 0.56rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
   cursor: pointer;
-  display: block;
-  margin-left: auto;
+  padding: 2px 0;
+}
+
+.offers-view-more:hover {
+  color: #1f6f25;
+  text-decoration: underline;
 }
 
 .offers-deals-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  column-gap: 24px;
+  row-gap: 20px;
+  width: 100%;
+  max-width: calc((4 * 340px) + (3 * 24px));
+  margin-inline: auto;
 }
 
 .offers-deal-box {
-  min-height: 126px;
+  min-height: 252px;
   background: #d4e576;
   border-radius: 10px;
 }
 
 .offers-banner-strip {
   width: 100%;
+  max-width: calc((4 * 340px) + (3 * 24px));
   min-height: 34px;
   border-radius: 4px;
   background: #d4e576;
   margin-bottom: 10px;
+  margin-inline: auto;
+}
+
+.offers-cards-grid-lg {
+  width: 100%;
+  max-width: calc((4 * 340px) + (3 * 24px));
+  margin-inline: auto;
 }
 
 .offers-banner-strip-bottom {
   margin-top: 12px;
   margin-bottom: 0;
-}
-
-.offers-shell .footer {
-  padding: 1rem 1rem 0.8rem;
-  background: #0d5f0f;
-}
-
-.offers-shell .footer-top {
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
-  gap: 1rem;
-}
-
-.offers-shell .footer-logo {
-  height: 68px;
-}
-
-.offers-shell .footer-desc,
-.offers-shell .footer-socials {
-  margin-left: 0;
-}
-
-.offers-shell .footer-desc {
-  font-size: 0.62rem;
-  max-width: 210px;
-  margin-bottom: 0.8rem;
-}
-
-.offers-shell .footer-col-title {
-  margin-top: 0;
-  font-size: 0.64rem;
-}
-
-.offers-shell .footer-list-link {
-  font-size: 0.6rem;
-}
-
-.offers-shell .footer-copy,
-.offers-shell .footer-bottom-link {
-  font-size: 0.56rem;
 }
 
 @media (max-width: 760px) {
@@ -178,12 +183,6 @@
   .offers-shell {
     width: 100%;
     border: none;
-  }
-
-  .offers-shell .nav {
-    padding: 4px 8px;
-    min-height: 56px;
-    height: auto;
   }
 
   .offers-arrival-grid {
@@ -203,7 +202,15 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .offers-shell .footer-top {
-    grid-template-columns: 1fr 1fr;
+  .offers-section-header {
+    max-width: 100%;
   }
+
+  .offers-arrival-grid,
+  .offers-deals-row,
+  .offers-banner-strip,
+  .offers-cards-grid-lg {
+    max-width: 100%;
+  }
+
 }

@@ -257,6 +257,18 @@ export const STORE_SECTIONS = {
     "pringles-sour-cream-onion",
     "red-bull-energy-boost",
   ],
+  newProducts: [
+    "cheetos-large-brand",
+    "gardenia-white-bread",
+    "maggi-instant-noodles",
+    "head-shoulders-shampoo",
+  ],
+  homeBestSellers: [
+    "englands-best-eggs",
+    "citrus-sparkling-drink",
+    "skin-healing-gel",
+    "maybelline-fit-me",
+  ],
 };
 
 export function getItemsBySection(sectionKey) {
