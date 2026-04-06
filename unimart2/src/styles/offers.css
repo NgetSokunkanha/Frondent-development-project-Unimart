@@ -1,0 +1,216 @@
+.offers-page {
+  min-height: 100vh;
+  width: 100%;
+  background: #f4f6ed;
+  padding: 0;
+  font-family: "Nunito", sans-serif;
+}
+
+.offers-shell {
+  width: 100%;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 1px 1px, rgba(75, 97, 55, 0.07) 1px, transparent 0) 0 0 / 26px 26px,
+    #f4f6ed;
+  border: none;
+}
+
+.offers-shell .nav {
+  position: static;
+  box-shadow: none;
+  height: 64px;
+  padding: 0 2rem;
+  background: #0f6a0e;
+}
+
+.offers-shell .logoImg {
+  height: 85px;
+}
+
+.offers-shell .links {
+  gap: 4px;
+}
+
+.offers-shell .link {
+  font-size: 0.75rem;
+  padding: 6px 12px;
+}
+
+.offers-shell .actions {
+  gap: 6px;
+}
+
+.offers-shell .iconBtn {
+  width: 38px;
+  height: 38px;
+}
+
+.offers-content {
+  padding: 14px;
+}
+
+.offers-section {
+  margin-bottom: 0;
+}
+
+.offers-section + .offers-section {
+  margin-top: 34px;
+}
+
+.offers-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  max-width: calc((4 * 340px) + (3 * 24px));
+  margin-inline: auto;
+  margin-bottom: 8px;
+}
+
+.offers-title {
+  font-size: 0.95rem;
+  color: #3f8f38;
+  font-weight: 900;
+  margin-bottom: 0;
+}
+
+.offers-arrival-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.85fr;
+  gap: 24px;
+  align-items: stretch;
+  width: 100%;
+  max-width: calc((4 * 340px) + (3 * 24px));
+  margin-inline: auto;
+}
+
+.offers-highlight-block {
+  height: 100%;
+  min-height: 236px;
+  border-radius: 10px;
+  background: #d4e576;
+}
+
+.offers-arrival-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.offers-cards-grid {
+  display: grid;
+  column-gap: 24px;
+  row-gap: 20px;
+}
+
+.offers-cards-grid-sm {
+  grid-template-columns: repeat(3, minmax(0, 340px));
+  justify-content: center;
+}
+
+.offers-cards-grid-lg {
+  grid-template-columns: repeat(4, minmax(0, 340px));
+  justify-content: center;
+}
+
+.offers-cards-grid .product-card {
+  background: #fff8c7;
+  border-color: #f1e8be;
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+.offers-view-more {
+  border: none;
+  background: transparent;
+  color: #2c8534;
+  font-family: "Nunito", sans-serif;
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  padding: 2px 0;
+}
+
+.offers-view-more:hover {
+  color: #1f6f25;
+  text-decoration: underline;
+}
+
+.offers-deals-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 24px;
+  row-gap: 20px;
+  width: 100%;
+  max-width: calc((4 * 340px) + (3 * 24px));
+  margin-inline: auto;
+}
+
+.offers-deal-box {
+  min-height: 252px;
+  background: #d4e576;
+  border-radius: 10px;
+}
+
+.offers-banner-strip {
+  width: 100%;
+  max-width: calc((4 * 340px) + (3 * 24px));
+  min-height: 34px;
+  border-radius: 4px;
+  background: #d4e576;
+  margin-bottom: 10px;
+  margin-inline: auto;
+}
+
+.offers-cards-grid-lg {
+  width: 100%;
+  max-width: calc((4 * 340px) + (3 * 24px));
+  margin-inline: auto;
+}
+
+.offers-banner-strip-bottom {
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+@media (max-width: 760px) {
+  .offers-page {
+    padding: 0;
+    background: #f4f6ed;
+  }
+
+  .offers-shell {
+    width: 100%;
+    border: none;
+  }
+
+  .offers-arrival-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .offers-highlight-block {
+    min-height: 130px;
+  }
+
+  .offers-cards-grid-sm,
+  .offers-cards-grid-lg {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .offers-deals-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .offers-section-header {
+    max-width: 100%;
+  }
+
+  .offers-arrival-grid,
+  .offers-deals-row,
+  .offers-banner-strip,
+  .offers-cards-grid-lg {
+    max-width: 100%;
+  }
+
+}

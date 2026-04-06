@@ -1,114 +1,65 @@
 .product-card {
-  background: #fff;
+  background: #fff9cc;
   border-radius: 14px;
-  border: 1.5px solid #e8f0e9;
-  width: 180px;
+  border: 1px solid #f0e9b4;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
   overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
   font-family: "Nunito", sans-serif;
   transition: all 0.25s;
+  padding: 14px;
+  gap: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 28px rgba(45, 122, 58, 0.15);
-  border-color: #b8dfc0;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(45, 122, 58, 0.14);
+  border-color: #ddd8a0;
 }
 
 .product-img-wrap {
-  background: #f4fbf5;
-  height: 135px;
+  width: 110px;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  overflow: hidden;
+  background: transparent;
 }
 
 .product-img {
   width: 100%;
-  height: 100%;
+  height: auto;
+  max-height: 130px;
   object-fit: contain;
-  padding: 10px;
   transition: transform 0.3s;
 }
 
 .product-card:hover .product-img {
-  transform: scale(1.06);
-}
-
-.product-badge {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  font-size: 0.6rem;
-  font-weight: 800;
-  padding: 3px 8px;
-  border-radius: 20px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: #fff;
-}
-
-.badge-new  { background: #2d7a3a; }
-.badge-sale { background: #f47c20; }
-.badge-hot  { background: #e53935; }
-
-.product-discount {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  background: #fff3e0;
-  color: #f47c20;
-  font-size: 0.6rem;
-  font-weight: 800;
-  padding: 3px 6px;
-  border-radius: 6px;
-}
-
-.product-wish-btn {
-  position: absolute;
-  bottom: 8px;
-  right: 8px;
-  background: white;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.product-wish-btn:hover,
-.product-wish-btn.wished {
-  border-color: #e53935;
-  background: #fff5f5;
+  transform: scale(1.05);
 }
 
 .product-body {
-  padding: 10px 12px 12px;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
+  min-width: 0;
+  padding: 2px 0;
 }
 
 .product-brand {
-  font-size: 0.62rem;
-  color: #aaa;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  display: none;
 }
 
 .product-name {
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   font-weight: 800;
   color: #1e3a22;
-  line-height: 1.3;
-  overflow: hidden;
+  line-height: 1.35;
 }
 
 .star-rating {
@@ -118,21 +69,17 @@
 }
 
 .star-rating-count {
-  font-size: 0.68rem;
-  color: #999;
-  font-weight: 700;
-  margin-left: 3px;
+  display: none;
 }
 
 .product-price-row {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-top: 2px;
 }
 
 .product-price {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 900;
   color: #1a5c2a;
 }
@@ -144,34 +91,42 @@
   font-weight: 600;
 }
 
-.product-cart-btn {
-  width: 100%;
-  background: #2d7a3a;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 7px 0;
-  font-family: "Nunito", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 800;
+.product-action-row {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 6px;
-  margin-top: 4px;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.product-action-row .buy-now-btn {
+  flex: 1;
+}
+
+.product-favorite-trigger {
+  width: auto;
+  height: auto;
+  padding: 2px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: #aaa;
   cursor: pointer;
-  transition: background 0.2s;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.18s ease;
 }
 
-.product-cart-btn:hover {
-  background: #1a5c2a;
+.product-favorite-trigger:hover,
+.product-favorite-trigger:focus-visible,
+.product-favorite-trigger.active {
+  color: #f6a400;
+  background: transparent;
+  border: none;
+  outline: none;
 }
 
-.product-cart-btn.added {
-  background: #43a047;
-}
-
-.product-cart-btn.out-of-stock {
-  background: #ccc;
-  cursor: not-allowed;
-}
+/* page-level grid wrapper used by category and home */
+.cat-products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;  align-items: stretch;}

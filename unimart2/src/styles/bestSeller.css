@@ -1,0 +1,439 @@
+.bs-page {
+  min-height: 100vh;
+  background: #f4f6ef;
+  width: 100%;
+  padding: 0;
+  font-family: "Nunito", sans-serif;
+  color: #1d2d1f;
+}
+
+.bs-shell {
+  width: 100%;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 1px 1px, rgba(26, 92, 42, 0.08) 1.1px, transparent 0) 0 0 / 24px 24px,
+    #f6f7ef;
+  border: none;
+}
+
+.bs-shell .nav {
+  position: static;
+  height: 64px;
+  padding: 0 2rem;
+  box-shadow: none;
+  background: #0f6a0e;
+}
+
+.bs-shell .logoImg {
+  height: 85px;
+}
+
+.bs-shell .links {
+  gap: 4px;
+}
+
+.bs-shell .link {
+  font-size: 0.75rem;
+  padding: 6px 12px;
+}
+
+.bs-content {
+  padding: 14px;
+}
+
+.bs-hero {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 10px;
+  width: 100%;
+  max-width: calc((4 * 340px) + (3 * 24px));
+  margin-inline: auto;
+}
+
+.bs-promo {
+  border-radius: 12px;
+  min-height: 150px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #d9e2cf;
+}
+
+.bs-promo-main {
+  background: #f1f5ea;
+  padding: 16px;
+}
+
+.bs-promo-main::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, rgba(246, 247, 239, 0.9) 0%, rgba(246, 247, 239, 0.55) 45%, rgba(246, 247, 239, 0.15) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bs-promo-main h2 {
+  position: absolute;
+  left: 28px;
+  top: 24px;
+  margin: 0;
+  z-index: 2;
+  display: grid;
+  gap: 3px;
+  font-size: 1.95rem;
+  line-height: 1.03;
+  max-width: min(58%, 470px);
+}
+
+.bs-promo-main h2 span:first-child {
+  color: #f28b22;
+}
+
+.bs-promo-main h2 strong {
+  color: #f28b22;
+}
+
+.bs-main-illustration {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+.bs-promo-side {
+  background: #0fa95a;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.bs-promo-side::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.18) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bs-side-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+.bs-side-caption {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  max-width: 132px;
+  margin-top: 2px;
+}
+
+.bs-side-caption p {
+  margin: 0;
+  font-size: 0.55rem;
+  line-height: 1.25;
+  text-align: left;
+  color: #0e2813;
+  font-weight: 800;
+}
+
+.bs-side-shop-btn {
+  border: none;
+  background: #1c2a1e;
+  color: #ffffff;
+  font-family: "Nunito", sans-serif;
+  font-size: 0.48rem;
+  font-weight: 800;
+  border-radius: 999px;
+  padding: 3px 10px;
+  cursor: pointer;
+}
+
+.bs-side-shop-btn:hover {
+  background: #101b12;
+}
+
+.bs-section {
+  margin-top: 34px;
+}
+
+.bs-section h4 {
+  color: #2c8534;
+  font-size: 0.95rem;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.bs-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+  width: 100%;
+  max-width: calc((4 * 340px) + (3 * 24px));
+  margin-inline: auto;
+}
+
+.bs-section-header h4 {
+  margin-bottom: 0;
+}
+
+.bs-view-all {
+  border: none;
+  background: transparent;
+  color: #2c8534;
+  font-family: "Nunito", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  padding: 2px 0;
+}
+
+.bs-view-all:hover {
+  color: #1f6f25;
+  text-decoration: underline;
+}
+
+.bs-products-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 340px));
+  column-gap: 24px;
+  row-gap: 20px;
+  justify-content: center;
+  align-items: stretch;
+}
+
+@media (max-width: 980px) {
+  .bs-hero {
+    max-width: calc((2 * 340px) + 18px);
+  }
+
+  .bs-section-header {
+    max-width: calc((2 * 340px) + 18px);
+  }
+
+  .bs-products-row {
+    grid-template-columns: repeat(2, minmax(0, 340px));
+    column-gap: 18px;
+    row-gap: 16px;
+  }
+
+  .bs-category-layout {
+    max-width: calc((2 * 340px) + 18px);
+    grid-template-columns: 1fr;
+  }
+
+  .bs-categories > h4 {
+    max-width: calc((2 * 340px) + 18px);
+  }
+
+}
+
+.bs-products-row .product-card {
+  border-radius: 10px;
+  border-color: #f2ebbf;
+  box-shadow: none;
+  background: #fff8c8;
+}
+
+.bs-categories {
+  margin-bottom: 18px;
+}
+
+.bs-categories > h4 {
+  width: 100%;
+  max-width: calc((4 * 340px) + (3 * 24px));
+  margin-inline: auto;
+}
+
+.bs-category-layout {
+  width: 100%;
+  max-width: calc((4 * 340px) + (3 * 24px));
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 2.2fr 1fr;
+  gap: 12px;
+}
+
+.bs-category-promo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.bs-cat-promo {
+  position: relative;
+  min-height: 208px;
+  border-radius: 0;
+  padding: 18px 16px;
+  overflow: hidden;
+}
+
+.bs-cat-promo-lime {
+  background: #ccdd6a;
+}
+
+.bs-cat-promo-green {
+  background: #4a9646;
+}
+
+.bs-cat-promo h5 {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  font-size: 2rem;
+  line-height: 1.08;
+  font-weight: 900;
+  color: #111;
+  max-width: 58%;
+}
+
+.bs-cat-buy-btn {
+  position: relative;
+  z-index: 2;
+  margin-top: 12px;
+  border: none;
+  border-radius: 999px;
+  background: #1c792a;
+  color: #f2ffe8;
+  font-family: "Nunito", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  padding: 6px 16px;
+  cursor: pointer;
+}
+
+.bs-cat-buy-btn:hover {
+  background: #14601f;
+}
+
+.bs-cat-promo-image {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 52%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bs-promo-banner {
+  border-radius: 18px;
+  padding: 18px 16px;
+  min-height: 428px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 82% 12%, rgba(255, 255, 255, 0.35) 0, rgba(255, 255, 255, 0) 38%),
+    linear-gradient(160deg, #2f7d34 0%, #1f5f2a 58%, #154622 100%);
+  color: #eef9df;
+}
+
+.bs-promo-banner-tag {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #c9f1a5;
+}
+
+.bs-promo-banner h5 {
+  margin: 8px 0 10px;
+  font-size: 2rem;
+  line-height: 1.05;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.bs-promo-banner-copy {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.4;
+  color: #ddf0ce;
+  max-width: 190px;
+}
+
+.bs-promo-banner-btn {
+  margin-top: 16px;
+  width: fit-content;
+  border: none;
+  border-radius: 999px;
+  background: #d7ef85;
+  color: #1f4e22;
+  font-family: "Nunito", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 900;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.bs-promo-banner-btn:hover {
+  background: #c9e16f;
+}
+
+@media (max-width: 700px) {
+  .bs-shell {
+    width: 100%;
+  }
+
+  .bs-hero {
+    grid-template-columns: 1fr;
+    max-width: 340px;
+  }
+
+  .bs-promo-main h2 {
+    max-width: 60%;
+    font-size: 1.7rem;
+  }
+
+  .bs-products-row {
+    grid-template-columns: 1fr;
+  }
+
+  .bs-section-header {
+    max-width: 340px;
+  }
+
+  .bs-category-layout {
+    max-width: 340px;
+  }
+
+  .bs-categories > h4 {
+    max-width: 340px;
+  }
+
+  .bs-category-promo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bs-cat-promo h5 {
+    font-size: 1.55rem;
+    max-width: 55%;
+  }
+
+  .bs-cat-promo-image {
+    width: 50%;
+  }
+
+}
