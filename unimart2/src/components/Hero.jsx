@@ -1,9 +1,6 @@
 import { useState } from "react";
 import { FiArrowRight, FiArrowLeft } from "react-icons/fi";
 import "../styles/Hero.css";
-import hero1 from "../assets/hero1.jpg";
-import hero2 from "../assets/hero2.jpg";
-import hero3 from "../assets/hero3.jpg";
 
 const slides = [
   {
@@ -11,21 +8,18 @@ const slides = [
     sub: "Delivered Fresh",
     body: "From groceries to gadgets, UniMart brings it all together, easy, fresh and affordable.",
     accent: "#f47c20",
-    image: hero1,
   },
   {
     headline: "Fresh Produce,",
     sub: "Every Single Day",
     body: "Farm-fresh fruits and vegetables picked for quality and delivered straight to your door.",
     accent: "#3a7d1e",
-    image: hero2,
   },
   {
     headline: "Big Savings,",
     sub: "Even Bigger Smiles",
     body: "Discover weekly deals, flash sales and exclusive member offers and all in one place.",
     accent: "#c0392b",
-    image: hero3,
   },
 ];
 
@@ -55,11 +49,7 @@ export default function Hero() {
 
   return (
     <section className={`hero ${s.bgClass}`}>
-      <img
-        src={s.image}
-        alt="Hero Background"
-        className={`hero-bg ${fading ? "hero-hidden" : "hero-visible"}`}
-      />
+      <div className={`hero-bg ${fading ? "hero-hidden" : "hero-visible"}`} />
       <div className="hero-overlay" />
 
       <div className={`hero-content ${fading ? "hero-hidden" : "hero-visible"}`}>

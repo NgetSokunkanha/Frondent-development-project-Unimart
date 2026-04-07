@@ -1,54 +1,48 @@
-import Header from "../components/header.jsx";
-import Footer from "../components/Footer.jsx";
-import ProductCard from "../components/ProductCard.jsx";
+import { useNavigate } from "react-router-dom";
+import Header      from "../components/header.jsx";
+import Footer      from "../components/footer.jsx";
+import ProductCard from "../components/productCard.jsx";
 import { getItemsBySection } from "../data/storeItems.js";
 import "../styles/offers.css";
 
 const featuredOffers = getItemsBySection("featuredOffers");
+const promoItems     = [...featuredOffers, ...featuredOffers.slice(0, 2)];
 
-const promoItems = [
-  ...featuredOffers,
-  ...featuredOffers.slice(0, 2),
-];
-
-function Offers({
-  activeLink = "OFFERS & UPDATES",
-  onNavigate,
-  cartItems,
+export default function Offers({
+  cartItems           = [],
   onAddToCart,
   onUpdateCartQuantity,
   onRemoveFromCart,
   onClearCart,
-  currentUser,
-  onLogin,
-  onSignUp,
-  onLogout,
-  favoriteItems,
-  favoriteItemKeys,
+  favoriteItems       = [],
+  favoriteItemKeys    = [],
   onToggleFavorite,
   onRemoveFavorite,
   onClearFavorites,
+  currentUser         = null,
+  onLogin,
+  onSignUp,
+  onLogout,
 }) {
+  const navigate = useNavigate();
+
   return (
     <div className="offers-page">
-      <div className="offers-shell">
-        <Header
-          initialActive="OFFERS & UPDATES"
-          activeLink={activeLink}
-          onNavigate={onNavigate}
+      <Header
           cartItems={cartItems}
+          onAddToCart={onAddToCart}
           onUpdateCartQuantity={onUpdateCartQuantity}
           onRemoveFromCart={onRemoveFromCart}
           onClearCart={onClearCart}
+          favoriteItems={favoriteItems}
+          onRemoveFavorite={onRemoveFavorite}
+          onClearFavorites={onClearFavorites}
           currentUser={currentUser}
           onLogin={onLogin}
           onSignUp={onSignUp}
           onLogout={onLogout}
-          favoriteItems={favoriteItems}
-          onRemoveFavorite={onRemoveFavorite}
-          onClearFavorites={onClearFavorites}
-        />
-
+      />
+      <div className="offers-shell">
         <main className="offers-content">
           <section className="offers-section">
             <div className="offers-section-header">
@@ -56,7 +50,7 @@ function Offers({
               <button
                 className="offers-view-more"
                 type="button"
-                onClick={() => onNavigate?.("CATEGORY")}
+                onClick={() => navigate("/category")}
               >
                 VIEW ALL
               </button>
@@ -64,7 +58,6 @@ function Offers({
 
             <div className="offers-arrival-grid">
               <div className="offers-highlight-block" />
-
               <div className="offers-arrival-right">
                 <div className="offers-cards-grid offers-cards-grid-sm">
                   {featuredOffers.map((item, index) => (
@@ -134,5 +127,3 @@ function Offers({
     </div>
   );
 }
-
-export default Offers;

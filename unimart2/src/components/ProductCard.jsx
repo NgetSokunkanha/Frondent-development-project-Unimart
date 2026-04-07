@@ -70,7 +70,7 @@ export default function ProductCard({
       </div>
 
       <div className="product-img-wrap">
-        <img src={image} alt={name} className="product-img" />
+        <div className="product-img" />
       </div>
 
     </div>

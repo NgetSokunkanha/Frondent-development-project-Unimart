@@ -1,4 +1,3 @@
-// src/data/Categories.js
 
 export const categories = [
   {label: "Fresh Produce", count: "120+ items", iconColor: "#3a7d1e", bg: "#edf7e5" },

@@ -1,27 +1,18 @@
+
 .badge {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	width: fit-content;
-	min-height: 22px;
-	padding: 4px 12px;
-	border-radius: 999px;
-	font-size: 0.72rem;
-	font-weight: 800;
-	line-height: 1;
-	letter-spacing: 0;
-	color: #ffffff;
-	box-shadow: 0 3px 10px rgba(47, 125, 50, 0.18);
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 8px;
+  border-radius: 99px;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  width: fit-content;
 }
 
-.badge-new {
-	background-color: #2f7d32;
-}
-
-.badge-best {
-	background-color: #ff8f00;
-}
-
-.badge-sale {
-	background-color: #d84315;
-}
+.badge-new  { background: var(--clr-green-pale); color: var(--clr-forest-mid); }
+.badge-best { background: var(--clr-amber-pale);  color: #9a4d08; }
+.badge-sale { background: #fde8e8;                color: #8b1c1c; }

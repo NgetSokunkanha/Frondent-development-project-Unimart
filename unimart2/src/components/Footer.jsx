@@ -21,7 +21,6 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-top">
 
-        {/* Brand */}
         <div className="footer-brand">
           <img src={logo} alt="Unimart Logo" className="footer-logo" />
 

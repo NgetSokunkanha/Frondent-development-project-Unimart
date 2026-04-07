@@ -1,77 +1,55 @@
 import "../styles/bestSeller.css";
-import Header from "../components/header.jsx";
-import Footer from "../components/Footer.jsx";
-import ProductCard from "../components/ProductCard.jsx";
+import { useNavigate } from "react-router-dom";
+import Header      from "../components/header.jsx";
+import Footer      from "../components/footer.jsx";
+import ProductCard from "../components/productCard.jsx";
 import { getItemsBySection } from "../data/storeItems.js";
-import bestSellerHeroImage from "../assets/best seller/best seller hero 1.png";
-import bestSellerHeroSideImage from "../assets/best seller/best seller hero 2.png";
-import popularCategory1 from "../assets/best seller/popular category 1.png";
-import popularCategory2 from "../assets/best seller/popular category 2.png";
-import popularCategory3 from "../assets/best seller/popular category 3.png";
-import popularCategory4 from "../assets/best seller/popular category 4.png";
 
 const dailyBestSellers = getItemsBySection("dailyBestSellers");
-const risingTrends = getItemsBySection("risingTrends");
+const risingTrends     = getItemsBySection("risingTrends");
+
 const categoryPromoCards = [
-  {
-    title: "Fresh Meat",
-    image: popularCategory1,
-    tone: "lime",
-  },
-  {
-    title: "Fresh Vegetables",
-    image: popularCategory2,
-    tone: "green",
-  },
-  {
-    title: "Snacks & Drinks",
-    image: popularCategory3,
-    tone: "green",
-  },
-  {
-    title: "Fresh Produce",
-    image: popularCategory4,
-    tone: "lime",
-  },
+  { title: "Fresh Meat",        tone: "lime"  },
+  { title: "Fresh Vegetables",  tone: "green" },
+  { title: "Snacks & Drinks",   tone: "green" },
+  { title: "Fresh Produce",     tone: "lime"  },
 ];
 
-function BestSeller({
-  activeLink = "BEST SELLERS",
-  onNavigate,
-  cartItems,
+export default function BestSeller({
+  cartItems           = [],
   onAddToCart,
   onUpdateCartQuantity,
   onRemoveFromCart,
   onClearCart,
-  currentUser,
-  onLogin,
-  onSignUp,
-  onLogout,
-  favoriteItems,
-  favoriteItemKeys,
+  favoriteItems       = [],
+  favoriteItemKeys    = [],
   onToggleFavorite,
   onRemoveFavorite,
   onClearFavorites,
+  currentUser         = null,
+  onLogin,
+  onSignUp,
+  onLogout,
 }) {
+  const navigate = useNavigate();
+
   return (
     <div className="bs-page">
-      <div className="bs-shell">
-        <Header
-          initialActive="BEST SELLERS"
-          activeLink={activeLink}
-          onNavigate={onNavigate}
+      <Header
           cartItems={cartItems}
+          onAddToCart={onAddToCart}
           onUpdateCartQuantity={onUpdateCartQuantity}
           onRemoveFromCart={onRemoveFromCart}
           onClearCart={onClearCart}
+          favoriteItems={favoriteItems}
+          onRemoveFavorite={onRemoveFavorite}
+          onClearFavorites={onClearFavorites}
           currentUser={currentUser}
           onLogin={onLogin}
           onSignUp={onSignUp}
           onLogout={onLogout}
-          favoriteItems={favoriteItems}
-          onRemoveFavorite={onRemoveFavorite}
-          onClearFavorites={onClearFavorites}
-        />
+      />
+      <div className="bs-shell">
 
         <main className="bs-content">
           <section className="bs-hero">
@@ -79,23 +57,13 @@ function BestSeller({
               <h2>
                 <span>Hot Picks.</span>
                 <span>Fast Moving.</span>
-                <span>
-                  Don&apos;t <strong>Miss Out.</strong>
-                </span>
+                <span>Don&apos;t <strong>Miss Out.</strong></span>
               </h2>
-              <img
-                src={bestSellerHeroImage}
-                alt="Best seller products"
-                className="bs-main-illustration"
-              />
+              <div className="bs-main-illustration" />
             </article>
 
             <article className="bs-promo bs-promo-side">
-              <img
-                src={bestSellerHeroSideImage}
-                alt="Best seller featured product"
-                className="bs-side-image"
-              />
+              <div className="bs-side-image" />
               <div className="bs-side-caption">
                 <p>Shop what everyone&apos;s loving at UniMart.</p>
                 <button type="button" className="bs-side-shop-btn">
@@ -111,7 +79,7 @@ function BestSeller({
               <button
                 type="button"
                 className="bs-view-all"
-                onClick={() => onNavigate?.("CATEGORY")}
+                onClick={() => navigate("/category")}
               >
                 VIEW ALL
               </button>
@@ -142,7 +110,7 @@ function BestSeller({
               <button
                 type="button"
                 className="bs-view-all"
-                onClick={() => onNavigate?.("CATEGORY")}
+                onClick={() => navigate("/category")}
               >
                 VIEW ALL
               </button>
@@ -172,10 +140,19 @@ function BestSeller({
             <div className="bs-category-layout">
               <div className="bs-category-promo-grid">
                 {categoryPromoCards.map((card) => (
-                  <article key={card.title} className={`bs-cat-promo bs-cat-promo-${card.tone}`}>
+                  <article
+                    key={card.title}
+                    className={`bs-cat-promo bs-cat-promo-${card.tone}`}
+                  >
                     <h5>{card.title}</h5>
-                    <button type="button" className="bs-cat-buy-btn">Buy Now</button>
-                    {card.image && <img src={card.image} alt={card.title} className="bs-cat-promo-image" />}
+                    <button
+                      type="button"
+                      className="bs-cat-buy-btn"
+                      onClick={() => navigate("/category")}
+                    >
+                      Buy Now
+                    </button>
+                    <div className="bs-cat-promo-image" />
                   </article>
                 ))}
               </div>
@@ -186,7 +163,11 @@ function BestSeller({
                 <p className="bs-promo-banner-copy">
                   Save more on produce, snacks, and pantry picks this week.
                 </p>
-                <button type="button" className="bs-promo-banner-btn">
+                <button
+                  type="button"
+                  className="bs-promo-banner-btn"
+                  onClick={() => navigate("/offers")}
+                >
                   Explore Offers
                 </button>
               </aside>
@@ -199,5 +180,3 @@ function BestSeller({
     </div>
   );
 }
-
-export default BestSeller;

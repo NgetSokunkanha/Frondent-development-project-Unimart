@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FiShoppingCart, FiHeart, FiUser } from "react-icons/fi";
+import { FiShoppingCart, FiHeart, FiUser, FiLogOut } from "react-icons/fi";
 import logo from "../assets/UnimartLogo.png";
-import LoginModal from "./loginModal.jsx";
-import SignUpModal from "./signUpModal.jsx";
-import CartModal from "./cartModal.jsx";
+import LoginModal    from "./loginModal.jsx";
+import SignUpModal   from "./signUpModal.jsx";
+import CartModal     from "./cartModal.jsx";
 import FavouriteModal from "./favouriteModal.jsx";
 import "../styles/Header.css";
 
@@ -15,177 +15,125 @@ const navLinks = [
   { label: "OFFERS & UPDATES", path: "/offers"      },
 ];
 
-<<<<<<< HEAD
-export default function Header() {
-  const location = useLocation();
-
-  return (
-    <nav className="nav">
-      <div className="logo">
-        <Link to="/">
-          <img src={logo} alt="Unimart Logo" className="logoImg" />
-        </Link>
-      </div>
- 
-      <ul className="links">
-        {navLinks.map(({ label, path }) => (
-          <li key={label}>
-            <Link
-              to={path}
-              className={`link ${location.pathname === path ? "active" : ""}`}
-            >
-              {label}
-            </Link>
-          </li>
-        ))}
-      </ul>
- 
-      <div className="actions">
-        <button className="iconBtn">
-          <FiShoppingCart size={20} />
-          <span className="badge">0</span>
-        </button>
-        <button className="iconBtn">
-          <FiHeart size={20} />
-        </button>
-        <button className="iconBtn">
-          <FiUser size={20} />
-        </button>
-      </div>
-    </nav>
-=======
 export default function Header({
-  initialActive = "HOME",
-  activeLink,
-  onNavigate,
-  cartItems = [],
+  cartItems          = [],
+  onAddToCart,
   onUpdateCartQuantity,
   onRemoveFromCart,
   onClearCart,
-  currentUser,
+  favoriteItems      = [],
+  onRemoveFavorite,
+  onClearFavorites,
+  currentUser        = null,
   onLogin,
   onSignUp,
   onLogout,
-  favoriteItems = [],
-  onRemoveFavorite,
-  onClearFavorites,
 }) {
-  const [internalActive, setInternalActive] = useState(initialActive);
-  const [activeAuthModal, setActiveAuthModal] = useState(null);
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const [isFavouriteOpen, setIsFavouriteOpen] = useState(false);
-  const active = activeLink ?? internalActive;
-  const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-  const favoriteCount = favoriteItems.length;
+  const location = useLocation();
+
+  const [cartOpen,      setCartOpen]      = useState(false);
+  const [favOpen,       setFavOpen]       = useState(false);
+  const [loginOpen,     setLoginOpen]     = useState(false);
+  const [signUpOpen,    setSignUpOpen]    = useState(false);
+
+  const totalItems = cartItems.reduce((sum, i) => sum + (i.quantity ?? 1), 0);
 
   const handleLoginSubmit = (credentials) => {
-    const maybeError = onLogin?.(credentials) ?? null;
-
-    if (!maybeError) {
-      setActiveAuthModal(null);
-    }
-
-    return maybeError;
+    const err = onLogin?.(credentials);
+    if (!err) setLoginOpen(false);
+    return err ?? null;
   };
 
-  const handleSignUpSubmit = (accountData) => {
-    const maybeError = onSignUp?.(accountData) ?? null;
-
-    if (!maybeError) {
-      setActiveAuthModal(null);
-    }
-
-    return maybeError;
+  const handleSignUpSubmit = (data) => {
+    const err = onSignUp?.(data);
+    if (!err) setSignUpOpen(false);
+    return err ?? null;
   };
 
-  const handleFavoriteIconClick = () => {
-    if (!currentUser) {
-      setActiveAuthModal("login");
-      return;
-    }
-
-    setIsFavouriteOpen(true);
-  };
+  const initials = currentUser
+    ? currentUser.name
+        .split(" ")
+        .map((n) => n[0])
+        .join("")
+        .toUpperCase()
+        .slice(0, 2)
+    : null;
 
   return (
     <>
       <nav className="nav">
         <div className="logo">
-          <img src={logo} alt="Unimart Logo" className="logoImg" />
+          <Link to="/">
+            <img src={logo} alt="Unimart Logo" className="logoImg" />
+          </Link>
         </div>
 
         <ul className="links">
-          {navLinks.map((link) => (
-            <li key={link}>
-              <a
-                href="#"
-                className={`link ${active === link ? "active" : ""}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (onNavigate) {
-                    onNavigate(link);
-                    return;
-                  }
-
-                  setInternalActive(link);
-                }}
+          {navLinks.map(({ label, path }) => (
+            <li key={label}>
+              <Link
+                to={path}
+                className={`link ${location.pathname === path ? "active" : ""}`}
               >
-                {link}
-              </a>
+                {label}
+              </Link>
             </li>
           ))}
         </ul>
 
         <div className="actions">
+          {/* Cart */}
           <button
             className="iconBtn"
-            onClick={() => setIsCartOpen(true)}
-            aria-label="Open cart modal"
+            onClick={() => setCartOpen(true)}
+            aria-label="Open cart"
           >
             <FiShoppingCart size={20} />
-            <span className="cart-badge">{cartCount}</span>
+            {totalItems > 0 && <span className="badge">{totalItems}</span>}
           </button>
 
-          <button className="iconBtn" onClick={handleFavoriteIconClick} aria-label="Open favorites modal">
-            <FiHeart size={20} />
-            <span className="heart-badge">{favoriteCount}</span>
-          </button>
-
+          {/* Favourites */}
           <button
             className="iconBtn"
-            onClick={() => {
-              if (currentUser) {
-                onLogout?.();
-                return;
-              }
-
-              setActiveAuthModal("login");
-            }}
-            aria-label={currentUser ? "Logout" : "Open login modal"}
-            title={currentUser ? `Logout (${currentUser.name})` : "Login"}
+            onClick={() => setFavOpen(true)}
+            aria-label="Open favourites"
           >
-            <FiUser size={20} />
+            <FiHeart size={20} />
+            {favoriteItems.length > 0 && (
+              <span className="badge">{favoriteItems.length}</span>
+            )}
           </button>
+
+          {/* User / Auth */}
+          {currentUser ? (
+            <button
+              className="iconBtn"
+              onClick={onLogout}
+              title={`Logout (${currentUser.name})`}
+              aria-label="Logout"
+            >
+              {initials ? (
+                <span className="userInitials">{initials}</span>
+              ) : (
+                <FiLogOut size={20} />
+              )}
+            </button>
+          ) : (
+            <button
+              className="iconBtn"
+              onClick={() => setLoginOpen(true)}
+              aria-label="Login"
+            >
+              <FiUser size={20} />
+            </button>
+          )}
         </div>
       </nav>
 
-      <LoginModal
-        isOpen={activeAuthModal === "login"}
-        onClose={() => setActiveAuthModal(null)}
-        onSwitchToSignUp={() => setActiveAuthModal("signup")}
-        onSubmitLogin={handleLoginSubmit}
-      />
-
-      <SignUpModal
-        isOpen={activeAuthModal === "signup"}
-        onClose={() => setActiveAuthModal(null)}
-        onSwitchToLogin={() => setActiveAuthModal("login")}
-        onSubmitSignUp={handleSignUpSubmit}
-      />
-
+      {/* Modals */}
       <CartModal
-        isOpen={isCartOpen}
-        onClose={() => setIsCartOpen(false)}
+        isOpen={cartOpen}
+        onClose={() => setCartOpen(false)}
         items={cartItems}
         onUpdateQuantity={onUpdateCartQuantity}
         onRemoveItem={onRemoveFromCart}
@@ -193,13 +141,26 @@ export default function Header({
       />
 
       <FavouriteModal
-        isOpen={isFavouriteOpen}
-        onClose={() => setIsFavouriteOpen(false)}
+        isOpen={favOpen}
+        onClose={() => setFavOpen(false)}
         items={favoriteItems}
         onRemoveItem={onRemoveFavorite}
         onClearFavorites={onClearFavorites}
       />
+
+      <LoginModal
+        isOpen={loginOpen}
+        onClose={() => setLoginOpen(false)}
+        onSwitchToSignUp={() => { setLoginOpen(false); setSignUpOpen(true); }}
+        onSubmitLogin={handleLoginSubmit}
+      />
+
+      <SignUpModal
+        isOpen={signUpOpen}
+        onClose={() => setSignUpOpen(false)}
+        onSwitchToLogin={() => { setSignUpOpen(false); setLoginOpen(true); }}
+        onSubmitSignUp={handleSignUpSubmit}
+      />
     </>
->>>>>>> fcfa9f917b4e6520f78f50d785ce17217bd072cd
   );
 }

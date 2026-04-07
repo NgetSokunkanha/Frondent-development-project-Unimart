@@ -1,7 +1,7 @@
 export const STORE_ITEMS = [
   {
     id: "cheetos-large-brand",
-    image: "https://placehold.co/280x180/fffbe8/888888?text=Cheetos",
+    image: "",
     name: "Cheetos - Large Global Brand",
     brand: "Snacks",
     price: 3.0,
@@ -11,7 +11,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "pocari-sweat",
-    image: "https://placehold.co/280x180/fffbe8/888888?text=Pocari",
+    image: "",
     name: "Japan Pocari Sweat hydration drink",
     brand: "Beverages",
     price: 1.5,
@@ -21,7 +21,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "meiji-fresh-milk",
-    image: "https://placehold.co/280x180/fffbe8/888888?text=Milk",
+    image: "",
     name: "Japan Meiji fresh milk brand",
     brand: "Dairy",
     price: 3.0,
@@ -31,7 +31,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "gardenia-white-bread",
-    image: "https://placehold.co/280x180/fffbe8/888888?text=Bread",
+    image: "",
     name: "Gardenia Malaysia White Bread",
     brand: "Bakery",
     price: 2.5,
@@ -41,7 +41,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "tyson-frozen-chicken",
-    image: "https://placehold.co/280x180/fffbe8/888888?text=Chicken",
+    image: "",
     name: "USA Tyson frozen chicken brand",
     brand: "Frozen",
     price: 5.2,
@@ -51,7 +51,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "head-shoulders-shampoo",
-    image: "https://placehold.co/280x180/fffbe8/888888?text=Shampoo",
+    image: "",
     name: "USA Head Shoulders shampoo",
     brand: "Personal care",
     price: 3.0,
@@ -61,7 +61,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "maggi-instant-noodles",
-    image: "https://placehold.co/280x180/fffbe8/888888?text=Noodles",
+    image: "",
     name: "Maggi Switzerland Instant Noodles",
     brand: "Pantry",
     price: 0.47,
@@ -71,7 +71,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "innisfree-hydrating-cream",
-    image: "https://placehold.co/280x180/fffbe8/888888?text=Cream",
+    image: "",
     name: "Korea Innisfree green hydrating cream",
     brand: "Beauty care",
     price: 8.0,
@@ -81,7 +81,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "maybelline-fit-me",
-    image: "https://placehold.co/280x180/fffbe8/888888?text=Foundation",
+    image: "",
     name: "USA Maybelline fit me foundation",
     brand: "Beauty care",
     price: 11.0,
@@ -91,7 +91,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "englands-best-eggs",
-    image: "https://placehold.co/280x180/fffbe8/888888?text=Eggs",
+    image: "",
     name: "England's best USA eggs",
     brand: "Fresh",
     price: 5.72,
@@ -101,7 +101,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "pringles-sour-cream-onion",
-    image: "https://placehold.co/280x180/fffbe8/888888?text=Pringles",
+    image: "",
     name: "USA Pringles sour cream onion chips",
     brand: "Snacks",
     price: 2.2,
@@ -111,7 +111,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "red-bull-energy-boost",
-    image: "https://placehold.co/280x180/fffbe8/888888?text=Red+Bull",
+    image: "",
     name: "Austria Red Bull energy boost drink",
     brand: "Beverages",
     price: 2.0,
@@ -121,7 +121,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "skin-healing-gel",
-    image: "https://placehold.co/280x180/fffbe8/888888?text=Healing+Gel",
+    image: "",
     name: "American skin healing gel",
     brand: "UniMart",
     price: 2.0,
@@ -131,7 +131,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "citrus-sparkling-drink",
-    image: "https://placehold.co/280x180/fffbe8/888888?text=Sparkling",
+    image: "",
     name: "American citrus sparkling drink",
     brand: "UniMart",
     price: 0.75,
@@ -141,7 +141,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "creamy-frozen-dessert",
-    image: "https://placehold.co/280x180/fffbe8/888888?text=Dessert",
+    image: "",
     name: "British creamy frozen dessert",
     brand: "UniMart",
     price: 2.0,
@@ -151,7 +151,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "butter-cookies-box",
-    image: "https://placehold.co/280x180/fffbe8/888888?text=Cookies",
+    image: "",
     name: "Belgian butter cookies box",
     brand: "UniMart",
     price: 3.2,
@@ -161,7 +161,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "fresh-orange-juice",
-    image: "https://placehold.co/280x180/fffbe8/888888?text=Juice",
+    image: "",
     name: "Fresh pressed orange juice",
     brand: "UniMart",
     price: 1.9,
@@ -171,7 +171,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "breakfast-cereal-classic",
-    image: "https://placehold.co/280x180/fffbe8/888888?text=Cereal",
+    image: "",
     name: "American breakfast cereal classic",
     brand: "UniMart",
     price: 3.0,
@@ -181,7 +181,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "famous-brown-sugar",
-    image: "https://placehold.co/280x180/fffbe8/888888?text=Brown+Sugar",
+    image: "",
     name: "Taiwanese famous brown sugar",
     brand: "UniMart",
     price: 2.5,
@@ -191,7 +191,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "chocolate-spread",
-    image: "https://placehold.co/280x180/fffbe8/888888?text=Nutella",
+    image: "",
     name: "Italian creamy chocolate spread",
     brand: "UniMart",
     price: 3.5,
@@ -201,7 +201,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "italian-pasta-pack",
-    image: "https://placehold.co/280x180/fffbe8/888888?text=Pasta",
+    image: "",
     name: "Classic Italian pasta pack",
     brand: "UniMart",
     price: 1.6,
@@ -211,7 +211,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "extra-virgin-olive-oil",
-    image: "https://placehold.co/280x180/fffbe8/888888?text=Olive+Oil",
+    image: "",
     name: "Extra virgin olive oil",
     brand: "UniMart",
     price: 5.5,

@@ -60,7 +60,7 @@ export default function CartModal({
 						<div className="cart-items-list">
 							{items.map((item) => (
 								<article key={item.key} className="cart-item-row">
-									<img src={item.image} alt={item.name} className="cart-item-image" />
+							<div className="cart-item-image" />
 
 									<div className="cart-item-main">
 										<p className="cart-item-name">{item.name}</p>

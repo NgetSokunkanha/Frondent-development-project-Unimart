@@ -17,7 +17,6 @@ export const bestSellers = [
   { name: "Quaker Oats 500g",               brand: "Quaker",    price: 2.49,                rating: 4.6, badge: "Best", inStock: false, category: "Breakfast"     },
 ];
 
-// All products combined — used by Category page
 export const allProducts = [
   ...newProducts,
   ...bestSellers,

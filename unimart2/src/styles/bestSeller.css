@@ -1,73 +1,80 @@
 .bs-page {
   min-height: 100vh;
-  background: #f4f6ef;
   width: 100%;
+  background: #fafbf7;
   padding: 0;
-  font-family: "Nunito", sans-serif;
-  color: #1d2d1f;
+  font-family: var(--font-body);
+  color: var(--clr-ink);
 }
 
 .bs-shell {
   width: 100%;
   min-height: 100vh;
-  background:
-    radial-gradient(circle at 1px 1px, rgba(26, 92, 42, 0.08) 1.1px, transparent 0) 0 0 / 24px 24px,
-    #f6f7ef;
-  border: none;
+  background: transparent;
 }
 
 .bs-shell .nav {
-  position: static;
-  height: 64px;
-  padding: 0 2rem;
-  box-shadow: none;
-  background: #0f6a0e;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(160deg, #163d20, #0f2914);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .bs-shell .logoImg {
-  height: 85px;
+  height: 40px;
 }
 
 .bs-shell .links {
-  gap: 4px;
+  gap: 8px;
 }
 
 .bs-shell .link {
-  font-size: 0.75rem;
-  padding: 6px 12px;
+  font-size: 0.9rem;
+  padding: 8px 12px;
+}
+
+.bs-shell .actions {
+  gap: 10px;
+}
+
+.bs-shell .iconBtn {
+  width: 42px;
+  height: 42px;
 }
 
 .bs-content {
-  padding: 14px;
+  padding: 24px clamp(16px, 4vw, 48px);
+  max-width: 1200px;
+  margin: 0 auto 48px;
 }
 
 .bs-hero {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 10px;
-  width: 100%;
-  max-width: calc((4 * 340px) + (3 * 24px));
-  margin-inline: auto;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
 }
 
 .bs-promo {
-  border-radius: 12px;
-  min-height: 150px;
   position: relative;
+  border-radius: 28px;
   overflow: hidden;
-  border: 1px solid #d9e2cf;
+  background: #fff;
+  box-shadow: var(--shadow-card);
+  min-height: 260px;
 }
 
 .bs-promo-main {
-  background: #f1f5ea;
-  padding: 16px;
+  background: linear-gradient(135deg, #f7f9f0, #e6efe1);
 }
 
 .bs-promo-main::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(100deg, rgba(246, 247, 239, 0.9) 0%, rgba(246, 247, 239, 0.55) 45%, rgba(246, 247, 239, 0.15) 100%);
+  background: linear-gradient(100deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.55) 45%, rgba(255, 255, 255, 0.15) 100%);
   pointer-events: none;
   z-index: 1;
 }
@@ -79,18 +86,18 @@
   margin: 0;
   z-index: 2;
   display: grid;
-  gap: 3px;
-  font-size: 1.95rem;
-  line-height: 1.03;
-  max-width: min(58%, 470px);
+  gap: 6px;
+  font-size: clamp(1.9rem, 3vw, 2.4rem);
+  line-height: 1.05;
+  max-width: 14ch;
 }
 
 .bs-promo-main h2 span:first-child {
-  color: #f28b22;
+  color: #f47c20;
 }
 
 .bs-promo-main h2 strong {
-  color: #f28b22;
+  color: #f47c20;
 }
 
 .bs-main-illustration {
@@ -104,19 +111,19 @@
 }
 
 .bs-promo-side {
-  background: #0fa95a;
-  padding: 12px;
+  background: linear-gradient(135deg, #e9f2e6, #d3e8cf);
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 16px;
 }
 
 .bs-promo-side::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.18) 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.12) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -136,46 +143,37 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
-  max-width: 132px;
-  margin-top: 2px;
+  gap: 8px;
+  max-width: 210px;
 }
 
 .bs-side-caption p {
   margin: 0;
-  font-size: 0.55rem;
-  line-height: 1.25;
-  text-align: left;
-  color: #0e2813;
-  font-weight: 800;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #14250f;
+  font-weight: 700;
 }
 
 .bs-side-shop-btn {
   border: none;
-  background: #1c2a1e;
+  background: #163d20;
   color: #ffffff;
-  font-family: "Nunito", sans-serif;
-  font-size: 0.48rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
   font-weight: 800;
   border-radius: 999px;
-  padding: 3px 10px;
+  padding: 10px 18px;
   cursor: pointer;
+  width: fit-content;
 }
 
 .bs-side-shop-btn:hover {
-  background: #101b12;
+  background: #0f3113;
 }
 
 .bs-section {
   margin-top: 34px;
-}
-
-.bs-section h4 {
-  color: #2c8534;
-  font-size: 0.95rem;
-  font-weight: 900;
-  margin-bottom: 8px;
 }
 
 .bs-section-header {
@@ -183,22 +181,24 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   width: 100%;
-  max-width: calc((4 * 340px) + (3 * 24px));
-  margin-inline: auto;
+  flex-wrap: wrap;
 }
 
 .bs-section-header h4 {
-  margin-bottom: 0;
+  color: var(--clr-forest);
+  font-size: 1.05rem;
+  font-weight: 900;
+  margin: 0;
 }
 
 .bs-view-all {
   border: none;
   background: transparent;
-  color: #2c8534;
-  font-family: "Nunito", sans-serif;
-  font-size: 0.72rem;
+  color: var(--clr-forest);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
   font-weight: 900;
   letter-spacing: 0.04em;
   cursor: pointer;
@@ -206,102 +206,72 @@
 }
 
 .bs-view-all:hover {
-  color: #1f6f25;
+  color: var(--clr-green);
   text-decoration: underline;
 }
 
 .bs-products-row {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 340px));
-  column-gap: 24px;
-  row-gap: 20px;
-  justify-content: center;
-  align-items: stretch;
-}
-
-@media (max-width: 980px) {
-  .bs-hero {
-    max-width: calc((2 * 340px) + 18px);
-  }
-
-  .bs-section-header {
-    max-width: calc((2 * 340px) + 18px);
-  }
-
-  .bs-products-row {
-    grid-template-columns: repeat(2, minmax(0, 340px));
-    column-gap: 18px;
-    row-gap: 16px;
-  }
-
-  .bs-category-layout {
-    max-width: calc((2 * 340px) + 18px);
-    grid-template-columns: 1fr;
-  }
-
-  .bs-categories > h4 {
-    max-width: calc((2 * 340px) + 18px);
-  }
-
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
 }
 
 .bs-products-row .product-card {
-  border-radius: 10px;
+  border-radius: 18px;
   border-color: #f2ebbf;
   box-shadow: none;
   background: #fff8c8;
 }
 
 .bs-categories {
-  margin-bottom: 18px;
+  margin-top: 40px;
 }
 
 .bs-categories > h4 {
+  margin: 0 0 18px;
   width: 100%;
-  max-width: calc((4 * 340px) + (3 * 24px));
-  margin-inline: auto;
 }
 
 .bs-category-layout {
-  width: 100%;
-  max-width: calc((4 * 340px) + (3 * 24px));
-  margin-inline: auto;
   display: grid;
-  grid-template-columns: 2.2fr 1fr;
-  gap: 12px;
+  grid-template-columns: 1.8fr 1fr;
+  gap: 20px;
 }
 
 .bs-category-promo-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  gap: 16px;
 }
 
 .bs-cat-promo {
   position: relative;
-  min-height: 208px;
-  border-radius: 0;
-  padding: 18px 16px;
+  min-height: 220px;
+  border-radius: 22px;
+  padding: 20px;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .bs-cat-promo-lime {
-  background: #ccdd6a;
+  background: #d9e7a7;
 }
 
 .bs-cat-promo-green {
-  background: #4a9646;
+  background: #4d9651;
+  color: #fff;
 }
 
 .bs-cat-promo h5 {
   position: relative;
   z-index: 2;
   margin: 0;
-  font-size: 2rem;
+  font-size: 1.75rem;
   line-height: 1.08;
   font-weight: 900;
-  color: #111;
-  max-width: 58%;
+  max-width: 70%;
 }
 
 .bs-cat-buy-btn {
@@ -312,11 +282,12 @@
   border-radius: 999px;
   background: #1c792a;
   color: #f2ffe8;
-  font-family: "Nunito", sans-serif;
+  font-family: var(--font-body);
   font-size: 0.95rem;
   font-weight: 800;
-  padding: 6px 16px;
+  padding: 10px 18px;
   cursor: pointer;
+  width: fit-content;
 }
 
 .bs-cat-buy-btn:hover {
@@ -337,15 +308,13 @@
 }
 
 .bs-promo-banner {
-  border-radius: 18px;
-  padding: 18px 16px;
+  border-radius: 24px;
+  padding: 28px 24px;
   min-height: 428px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background:
-    radial-gradient(circle at 82% 12%, rgba(255, 255, 255, 0.35) 0, rgba(255, 255, 255, 0) 38%),
-    linear-gradient(160deg, #2f7d34 0%, #1f5f2a 58%, #154622 100%);
+  background: linear-gradient(160deg, #2f7d34 0%, #1f5f2a 58%, #154622 100%);
   color: #eef9df;
 }
 
@@ -368,10 +337,10 @@
 
 .bs-promo-banner-copy {
   margin: 0;
-  font-size: 0.86rem;
-  line-height: 1.4;
+  font-size: 0.95rem;
+  line-height: 1.5;
   color: #ddf0ce;
-  max-width: 190px;
+  max-width: 260px;
 }
 
 .bs-promo-banner-btn {
@@ -381,10 +350,10 @@
   border-radius: 999px;
   background: #d7ef85;
   color: #1f4e22;
-  font-family: "Nunito", sans-serif;
-  font-size: 0.78rem;
-  font-weight: 900;
-  padding: 8px 14px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 800;
+  padding: 10px 18px;
   cursor: pointer;
 }
 
@@ -392,18 +361,35 @@
   background: #c9e16f;
 }
 
-@media (max-width: 700px) {
-  .bs-shell {
-    width: 100%;
+@media (max-width: 980px) {
+  .bs-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .bs-section-header {
+    max-width: 100%;
+  }
+
+  .bs-products-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bs-category-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .bs-content {
+    padding: 20px 16px;
   }
 
   .bs-hero {
-    grid-template-columns: 1fr;
-    max-width: 340px;
+    max-width: 100%;
   }
 
   .bs-promo-main h2 {
-    max-width: 60%;
+    max-width: 80%;
     font-size: 1.7rem;
   }
 
@@ -411,29 +397,7 @@
     grid-template-columns: 1fr;
   }
 
-  .bs-section-header {
-    max-width: 340px;
-  }
-
   .bs-category-layout {
-    max-width: 340px;
+    max-width: 100%;
   }
-
-  .bs-categories > h4 {
-    max-width: 340px;
-  }
-
-  .bs-category-promo-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .bs-cat-promo h5 {
-    font-size: 1.55rem;
-    max-width: 55%;
-  }
-
-  .bs-cat-promo-image {
-    width: 50%;
-  }
-
 }

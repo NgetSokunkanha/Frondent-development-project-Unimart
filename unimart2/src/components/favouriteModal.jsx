@@ -56,7 +56,7 @@ export default function FavouriteModal({
 						<div className="favourite-items-list">
 							{items.map((item) => (
 								<article key={item.key} className="favourite-item-row">
-									<img src={item.image} alt={item.name} className="favourite-item-image" />
+							<div className="favourite-item-image" />
 
 									<div className="favourite-item-main">
 										<p className="favourite-item-name">{item.name}</p>
