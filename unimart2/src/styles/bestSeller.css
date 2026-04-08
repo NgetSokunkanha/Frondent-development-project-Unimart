@@ -105,8 +105,10 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  background-image: url("../assets/best seller/best seller hero 1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   z-index: 0;
 }
 
@@ -117,6 +119,13 @@
   flex-direction: column;
   justify-content: flex-end;
   gap: 16px;
+}
+
+.bs-side-image {
+  background-image: url("../assets/best seller/best seller hero 2.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .bs-promo-side::after {
@@ -301,10 +310,27 @@
   bottom: 0;
   width: 52%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
   z-index: 1;
   pointer-events: none;
+}
+
+.bs-category-promo-grid .bs-cat-promo:nth-child(1) .bs-cat-promo-image {
+  background-image: url("../assets/best seller/popular category 1.png");
+}
+
+.bs-category-promo-grid .bs-cat-promo:nth-child(2) .bs-cat-promo-image {
+  background-image: url("../assets/best seller/popular category 2.png");
+}
+
+.bs-category-promo-grid .bs-cat-promo:nth-child(3) .bs-cat-promo-image {
+  background-image: url("../assets/best seller/popular category 3.png");
+}
+
+.bs-category-promo-grid .bs-cat-promo:nth-child(4) .bs-cat-promo-image {
+  background-image: url("../assets/best seller/popular category 4.png");
 }
 
 .bs-promo-banner {
