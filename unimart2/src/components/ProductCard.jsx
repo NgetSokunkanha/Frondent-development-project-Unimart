@@ -6,7 +6,7 @@ import StarRating from "./starRating.jsx";
 import "../styles/ProductCard.css";
 
 export default function ProductCard({
-  image = " ",
+  image = "",
   name = "Product Name",
   brand = "Brand",
   price = 5.99,
@@ -70,7 +70,7 @@ export default function ProductCard({
       </div>
 
       <div className="product-img-wrap">
-        <div className="product-img" />
+        <img className="product-img" src={image || undefined} alt={name} />
       </div>
 
     </div>

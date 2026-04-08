@@ -1,7 +1,10 @@
+const storeItemImage = (fileName) =>
+  new URL(`../assets/store items/${fileName}`, import.meta.url).href;
+
 export const STORE_ITEMS = [
   {
     id: "cheetos-large-brand",
-    image: "",
+    image: storeItemImage("Cheetos Large Global Brand.png"),
     name: "Cheetos - Large Global Brand",
     brand: "Snacks",
     price: 3.0,
@@ -11,7 +14,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "pocari-sweat",
-    image: "",
+    image: storeItemImage("Japan Pocari Sweat hydration drink.png"),
     name: "Japan Pocari Sweat hydration drink",
     brand: "Beverages",
     price: 1.5,
@@ -21,7 +24,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "meiji-fresh-milk",
-    image: "",
+    image: storeItemImage("Japan Meiji fresh milk brand.png"),
     name: "Japan Meiji fresh milk brand",
     brand: "Dairy",
     price: 3.0,
@@ -31,7 +34,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "gardenia-white-bread",
-    image: "",
+    image: storeItemImage("Gardenia Malaysia White Bread.png"),
     name: "Gardenia Malaysia White Bread",
     brand: "Bakery",
     price: 2.5,
@@ -41,7 +44,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "tyson-frozen-chicken",
-    image: "",
+    image: storeItemImage("USA Tyson frozen chicken brand.png"),
     name: "USA Tyson frozen chicken brand",
     brand: "Frozen",
     price: 5.2,
@@ -51,7 +54,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "head-shoulders-shampoo",
-    image: "",
+    image: storeItemImage("USA Head Shoulders shampoo.png"),
     name: "USA Head Shoulders shampoo",
     brand: "Personal care",
     price: 3.0,
@@ -61,7 +64,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "maggi-instant-noodles",
-    image: "",
+    image: storeItemImage("Maggi Switzerland Instant Noodles.png"),
     name: "Maggi Switzerland Instant Noodles",
     brand: "Pantry",
     price: 0.47,
@@ -71,7 +74,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "innisfree-hydrating-cream",
-    image: "",
+    image: storeItemImage("Korea Innisfree green hydrating cream.png"),
     name: "Korea Innisfree green hydrating cream",
     brand: "Beauty care",
     price: 8.0,
@@ -81,7 +84,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "maybelline-fit-me",
-    image: "",
+    image: storeItemImage("USA Maybelline fit me foundation.png"),
     name: "USA Maybelline fit me foundation",
     brand: "Beauty care",
     price: 11.0,
@@ -91,7 +94,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "englands-best-eggs",
-    image: "",
+    image: storeItemImage("Eggland\u2019s best USA eggs.png"),
     name: "England's best USA eggs",
     brand: "Fresh",
     price: 5.72,
@@ -101,7 +104,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "pringles-sour-cream-onion",
-    image: "",
+    image: storeItemImage("USA Pringles sour cream onion chips.png"),
     name: "USA Pringles sour cream onion chips",
     brand: "Snacks",
     price: 2.2,
@@ -111,7 +114,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "red-bull-energy-boost",
-    image: "",
+    image: storeItemImage("Austria Red Bull energy boost drink.png"),
     name: "Austria Red Bull energy boost drink",
     brand: "Beverages",
     price: 2.0,
@@ -121,7 +124,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "skin-healing-gel",
-    image: "",
+    image: storeItemImage("Health Care.png"),
     name: "American skin healing gel",
     brand: "UniMart",
     price: 2.0,
@@ -131,7 +134,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "citrus-sparkling-drink",
-    image: "",
+    image: storeItemImage("Beverages.png"),
     name: "American citrus sparkling drink",
     brand: "UniMart",
     price: 0.75,
@@ -141,7 +144,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "creamy-frozen-dessert",
-    image: "",
+    image: storeItemImage("Frozen Food.png"),
     name: "British creamy frozen dessert",
     brand: "UniMart",
     price: 2.0,
@@ -151,7 +154,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "butter-cookies-box",
-    image: "",
+    image: storeItemImage("Snacks.png"),
     name: "Belgian butter cookies box",
     brand: "UniMart",
     price: 3.2,
@@ -161,7 +164,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "fresh-orange-juice",
-    image: "",
+    image: storeItemImage("Fresh Products.png"),
     name: "Fresh pressed orange juice",
     brand: "UniMart",
     price: 1.9,
@@ -171,7 +174,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "breakfast-cereal-classic",
-    image: "",
+    image: storeItemImage("Fresh Products.png"),
     name: "American breakfast cereal classic",
     brand: "UniMart",
     price: 3.0,
@@ -181,7 +184,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "famous-brown-sugar",
-    image: "",
+    image: storeItemImage("Snacks.png"),
     name: "Taiwanese famous brown sugar",
     brand: "UniMart",
     price: 2.5,
@@ -191,7 +194,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "chocolate-spread",
-    image: "",
+    image: storeItemImage("Snacks.png"),
     name: "Italian creamy chocolate spread",
     brand: "UniMart",
     price: 3.5,
@@ -201,7 +204,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "italian-pasta-pack",
-    image: "",
+    image: storeItemImage("Fresh Products.png"),
     name: "Classic Italian pasta pack",
     brand: "UniMart",
     price: 1.6,
@@ -211,7 +214,7 @@ export const STORE_ITEMS = [
   },
   {
     id: "extra-virgin-olive-oil",
-    image: "",
+    image: storeItemImage("Fresh Products.png"),
     name: "Extra virgin olive oil",
     brand: "UniMart",
     price: 5.5,
